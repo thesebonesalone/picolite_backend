@@ -16,8 +16,7 @@ public class CommentService {
 
     public Optional<Comment> getById(Long id)
     {
-        Comment c = commentRepository.findById(id).get();
-        return Optional.ofNullable(c);
+        return commentRepository.findById(id);
     }
 
     public Comment saveOrUpdate(Comment c)
@@ -27,13 +26,8 @@ public class CommentService {
 
     public boolean delete(Long id)
     {
-        try
-        {
-            commentRepository.deleteById(id);
-            return true;
-        } catch (Exception e)
-        {
-            return false;
-        }
+
+        commentRepository.deleteById(id);
+        return true;
     }
 }
